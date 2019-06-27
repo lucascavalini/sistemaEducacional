@@ -1,5 +1,6 @@
 <?php
 session_start(); // Starting Session 
+
 $error = ''; // Variable To Store Error Message 
 if (isset($_POST['submit'])) { 
   if (empty($_POST['username']) || empty($_POST['password'])) { 
@@ -8,7 +9,11 @@ if (isset($_POST['submit'])) {
   else{ 
     // Define $username and $password 
     $username = $_POST['username']; 
-    $password = $_POST['password']; 
+    $password = $_POST['password'];
+    $usertype = $_POST['usertype'];
+    $_SESSION['usertype'] = $usertype;
+
+
     // mysqli_connect() function opens a new connection to the MySQL server. 
     $conn = mysqli_connect("localhost", "root", "", "educacional"); 
     // SQL query to fetch information of registerd users and finds user match. 
